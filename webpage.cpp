@@ -134,13 +134,13 @@ String wifi() PROGMEM{
     pref.end();
 
     wifi+= R"rawliteral(
-        <br>Current local wifi Gateway:
+        <br>Current local wifi gateway:
     )rawliteral";
 
     wifi+=returnLocalIP();
 
     wifi+= R"rawliteral(
-            <br><div>
+            <br>br><div>
                 <form action="/get">
                     <label for="ssid">SSID:</label>
                     <input type="text" name="ssid" id="ssid" value="">
