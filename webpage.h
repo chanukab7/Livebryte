@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <Preferences.h>
+#include "iot.h"
 
 extern String homepage() PROGMEM;
 extern String settings() PROGMEM;

@@ -124,7 +124,7 @@ String wifi() PROGMEM{
                 </div>
                 <div>
                     <h2>Local AP</h2>
-                    Current local wifi ssid: <u>
+                    Current local wifi ssid: 
             )rawliteral";
 
     Preferences pref;
@@ -134,9 +134,13 @@ String wifi() PROGMEM{
     pref.end();
 
     wifi+= R"rawliteral(
-            </u>
-            </div><br>
-            <div>
+        <br>Current local wifi Gateway:
+    )rawliteral";
+
+    wifi+=returnLocalIP();
+
+    wifi+= R"rawliteral(
+            <br><div>
                 <form action="/get">
                     <label for="ssid">SSID:</label>
                     <input type="text" name="ssid" id="ssid" value="">
