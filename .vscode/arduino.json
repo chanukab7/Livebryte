@@ -2,5 +2,7 @@
     "configuration": "PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none",
     "board": "esp32:esp32:esp32",
     "sketch": "esp32.ino",
-    "port": "/dev/ttyUSB0"
+    "port": "/dev/ttyUSB0",
+
+    "output": "/mnt/locald/Installations/ESP32Output"
 }
