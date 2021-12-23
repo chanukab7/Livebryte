@@ -105,6 +105,252 @@ String page = R"rawliteral(
 return page;
 }
 
+String doseChart() PROGMEM{
+    String page = R"rawliteral(
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>LIVEBRYTE Dose Chart</title>
+
+        <style>
+            .button {
+            background-color: hsl(14, 94%, 82%); /* Blue */
+            font-size: 20px;
+            padding-block: 5px;
+            border-radius: 10px;
+        }
+
+        </style>   
+    </head>
+    <body>
+        <img src="https://i.ibb.co/KrrWctB/livebryte.png"  alt="livebryte" style="height:100px;"> 
+        <header>
+            <h1>DOSE CHART</h1>
+        </header>
+        <div>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>| Time</th>
+                    <th>| Compartment 1</th>
+                    <th>| Compartment 2</th>
+                    <th>| Compartment 3</th>
+                    <th>| Last Dose Dispenced?</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th><!---time--->)rawliteral";
+
+                    Preferences pref;
+                    pref.begin("doseslot1", true);
+
+                    page += pref.getString("time");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 1 dose--->)rawliteral";
+
+                    page += pref.getUInt("comp1");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 2 dose--->)rawliteral";
+                    page += pref.getUInt("comp2");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 3 dose--->)rawliteral";
+                    page += pref.getUInt("comp3");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---yes/no--->)rawliteral";
+                    page += pref.getString("disposed");
+
+                    pref.end();
+                    
+                    page +=R"rawliteral(</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th><!---time--->)rawliteral";
+
+                    Preferences pref;
+                    pref.begin("doseslot2", true);
+
+                    page += pref.getString("time");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 1 dose--->)rawliteral";
+
+                    page += pref.getUInt("comp1");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 2 dose--->)rawliteral";
+                    page += pref.getUInt("comp2");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 3 dose--->)rawliteral";
+                    page += pref.getUInt("comp3");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---yes/no--->)rawliteral";
+                    page += pref.getString("disposed");
+
+                    pref.end();
+                    
+                    page +=R"rawliteral(</th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th><!---time--->)rawliteral";
+
+                    Preferences pref;
+                    pref.begin("doseslot3", true);
+
+                    page += pref.getString("time");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 1 dose--->)rawliteral";
+
+                    page += pref.getUInt("comp1");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 2 dose--->)rawliteral";
+                    page += pref.getUInt("comp2");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---Compartment 3 dose--->)rawliteral";
+                    page += pref.getUInt("comp3");
+                    
+                    page +=R"rawliteral(</th>
+                    <th><!---yes/no--->)rawliteral";
+                    page += pref.getString("disposed");
+
+                    pref.end();
+                    
+                    page +=R"rawliteral(</th>
+                </tr>
+            </table>
+        </div>
+
+        <br><div>
+            <a href="/dosechart/editdose/"><button class=button>Edit Dose</button></a>
+        </div>
+
+        <br><br><div>
+            <a href="/settings">Return to Settings</a><br>
+            <a href="/">Return to Homepage</a>
+        </div>
+    </body>
+    <footer>
+    <p>Individual Design Project<br>B. M. C. D. Bandara<br>D/ENG/20/0067/ET</p>
+    </footer>
+</html>
+})rawliteral";
+
+return page;
+}
+
+String editDose() PROGMEM{
+    String page = R"rawliteral(
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>LIVEBRYTE Dose</title>
+
+        <style>
+            .button {
+            background-color: hsl(14, 94%, 82%); /* Blue */
+            font-size: 20px;
+            padding-block: 5px;
+            border-radius: 10px;
+        }
+
+        .img {
+          display:block;
+          width: 30%;
+        }
+
+        </style>        
+    </head>
+    <body>
+        <img src="https://i.ibb.co/KrrWctB/livebryte.png"  alt="livebryte" style="height:100px;"> 
+
+        <h1>New Dose</h1>
+
+        <div>
+
+            <img src="https://i.ibb.co/64d8hqG/compnumbers.png" class="img" alt="compnumbers" border="0">  
+
+                <br><br><form action="/settings/dosechart/editdose/get">
+                <p>3 slots for doses available</p>
+                <label for=slot>Slot:</label>
+                <select id="slot" name="slot">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                </select> 
+
+                <h3>Compartment 1</h3>
+                <label for="time1">Time:</label>
+                <input type="time" id="time1" name="time1">
+                <br><br>
+
+                <label for="dose2">Dose (amount of pills):</label>
+                <select id="dose2" name="dose2">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                </select> 
+
+                <h3>Compartment 2</h3>
+                <label for="time2">Time:</label>
+                <input type="time" id="time2" name="time2">
+                <br><br>
+
+                <label for="dose2">Dose (amount of pills):</label>
+                <select id="dose2" name="dose2">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                </select> 
+
+                <h3>Compartment 3</h3>
+                <label for="time3">Time:</label>
+                <input type="time" id="time3" name="time3">
+                <br><br>
+
+                <label for="dose3">Dose (amount of pills):</label>
+                <select id="dose3" name="dose3">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                </select> 
+
+                <br><br><input type="submit" value="Submit" class="button">
+            </form>
+        </div>
+
+        <br><br><div>
+            <a href="/settings/dosechart">Back to Dose Chart</a><br>
+            <a href="/settings">Return to Settings</a><br>
+            <a href="/">Return to Homepage</a>
+        </div>
+    </body>
+
+    <footer>
+    <p>Individual Design Project<br>B. M. C. D. Bandara<br>D/ENG/20/0067/ET</p>
+    </footer>
+</html>
+)rawliteral";
+
+return page;
+}
+
 String wifi() PROGMEM{
     String wifi=R"rawliteral(
         <!DOCTYPE html>

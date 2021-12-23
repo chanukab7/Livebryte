@@ -11,6 +11,8 @@ void webclientSetup(){
 
     server.on("/", sendHomepage);
     server.on("/settings", sendSettings);
+    server.on("/settings/dosechart", sendDoseChart);
+    server.on("/settings/dosechart/editdose/", sendEditDose);
     server.on("/settings/wifi", sendWifi);
     server.on("/settings/timesetting", sendTimePage);
     server.on("/settings/phone", sendPhone);
@@ -27,6 +29,8 @@ void webclientSetup(){
     server.on("/cs2/dispense", sendDispense);
     server.on("/cs3/dispense", sendDispense);
     server.on("/get", sendSubmit);
+    server.on("/settings/dosechart/editdose/get", sendSubmitEditDose);
+    
 }
 
 void sendHomepage(){
@@ -37,6 +41,14 @@ void sendSettings(){
     actionDone = false;
     currentCompWebClient = 0;
     server.send(200, "text/html", settings());
+}
+
+void sendDoseChart(){
+    server.send(200, "text/html", doseChart());
+}
+
+void sendEditDose(){
+    server.send(200, "text/html", editDose());
 }
 
 void sendWifi(){
@@ -166,6 +178,38 @@ void sendSubmit(){
     server.send(200, "text/html", processed());
 }
 
+void sendSubmitEditDose(){
+    while(!actionDone){
+        server.send(200, "text/html", processing());
+        String command = server.argName(0);
+
+        Preferences pref;
+
+        if (server.arg(0)==1){
+            pref.begin("doseslot1", false);
+        }
+        else if (server.arg(0)==2){
+            pref.begin("doseslot2", false);
+        }
+        else if (server.arg(0)==1){
+            pref.begin("doseslot3", false);
+        }
+        else{
+            break;
+        }
+
+        pref.putString("time", server.arg(1));
+        pref.putUInt("comp1", server.arg(2));
+        pref.putUInt("comp2", server.arg(3));
+        pref.putUInt("comp3", server.arg(4));
+
+        pref.end();
+
+        actionDone = true;
+    }
+
+    server.send(200, "text/html", processed());
+}
 
 void handleClient(){
     server.handleClient();

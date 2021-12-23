@@ -7,6 +7,8 @@
 
 extern String homepage() PROGMEM;
 extern String settings() PROGMEM;
+extern String doseChart() PROGMEM;
+extern String editDose() PROGMEM;
 extern String wifi() PROGMEM;
 extern String timesetting() PROGMEM;
 extern String phone() PROGMEM;
