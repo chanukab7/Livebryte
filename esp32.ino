@@ -62,5 +62,7 @@ void loop(){
     default:
       break;
   }
+
+ //displayTime();
   
 }

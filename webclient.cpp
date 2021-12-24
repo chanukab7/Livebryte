@@ -185,13 +185,13 @@ void sendSubmitEditDose(){
 
         Preferences pref;
 
-        if (server.arg(0)==1){
+        if (server.arg(0)=="1"){
             pref.begin("doseslot1", false);
         }
-        else if (server.arg(0)==2){
+        else if (server.arg(0)=="2"){
             pref.begin("doseslot2", false);
         }
-        else if (server.arg(0)==1){
+        else if (server.arg(0)=="3"){
             pref.begin("doseslot3", false);
         }
         else{
@@ -199,9 +199,9 @@ void sendSubmitEditDose(){
         }
 
         pref.putString("time", server.arg(1));
-        pref.putUInt("comp1", server.arg(2));
-        pref.putUInt("comp2", server.arg(3));
-        pref.putUInt("comp3", server.arg(4));
+        pref.putUInt("comp1", server.arg(2).toInt());
+        pref.putUInt("comp2", server.arg(3).toInt());
+        pref.putUInt("comp3", server.arg(4).toInt());
 
         pref.end();
 

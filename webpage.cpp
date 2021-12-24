@@ -62,25 +62,35 @@ String page = R"rawliteral(
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <title>LIVEBRYTE Settings</title>
-        <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
         <style>
             .button {
             background-color: hsl(195, 100%, 80%); /* Blue */
             font-size: large;
             padding-block: 5px;
-        }
+            }
+
+            .button2 {
+            background-color: hsl(7, 90%, 89%) ; /* Blue */
+            font-size: 25px;
+            padding-block: 5px;
+            border-radius:px;
+            }
 
         </style>
     </head>
     <body>
         <header>
                 <img src="https://i.ibb.co/KrrWctB/livebryte.png"  alt="livebryte" style="height:100px;"> 
+
                 <h1>SETTINGS</h1>
         </header>
-              <div>
+            <div>
+                <a href="/settings/dosechart"><button class="button2" role="button"><b>DOSE CHART</b></button></a><br><br>
+            </div>
+            <div>
                 <a href="/settings/wifi"><button class="button" role="button">WI-FI CONFIGURATION</button></a><br><br>
-              </div>
-              <div>
+            </div>
+            <div>
                 <a href="/settings/timesetting"><button class="button" role="button">TIME SETTING</button></a><br><br>
             </div>
             <div>
@@ -173,7 +183,6 @@ String doseChart() PROGMEM{
                     <th>2</th>
                     <th><!---time--->)rawliteral";
 
-                    Preferences pref;
                     pref.begin("doseslot2", true);
 
                     page += pref.getString("time");
@@ -203,7 +212,6 @@ String doseChart() PROGMEM{
                     <th>3</th>
                     <th><!---time--->)rawliteral";
 
-                    Preferences pref;
                     pref.begin("doseslot3", true);
 
                     page += pref.getString("time");
