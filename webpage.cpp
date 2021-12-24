@@ -308,6 +308,7 @@ String editDose() PROGMEM{
 
                 <label for="dose2">Dose (amount of pills):</label>
                 <select id="dose2" name="dose2">
+                    <option value=0>0</option> 
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
@@ -318,6 +319,7 @@ String editDose() PROGMEM{
 
                 <label for="dose2">Dose (amount of pills):</label>
                 <select id="dose2" name="dose2">
+                    <option value=0>0</option>
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
@@ -328,6 +330,7 @@ String editDose() PROGMEM{
 
                 <label for="dose3">Dose (amount of pills):</label>
                 <select id="dose3" name="dose3">
+                    <option value=0>0</option>
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
