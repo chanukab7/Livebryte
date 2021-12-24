@@ -30,7 +30,6 @@ void sendDispense();
 void sendChangeName();
 void sendSubmit();
 void sendSubmitEditDose();
-
 void webclientSetup();
 void handleClient();
 

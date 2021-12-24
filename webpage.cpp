@@ -150,7 +150,7 @@ String doseChart() PROGMEM{
                     <th>| Last Dose Dispenced?</th>
                 </tr>
                 <tr>
-                    <th>1</th>
+                    <th>1) </th>
                     <th><!---time--->)rawliteral";
 
                     Preferences pref;
@@ -180,7 +180,7 @@ String doseChart() PROGMEM{
                     page +=R"rawliteral(</th>
                 </tr>
                 <tr>
-                    <th>2</th>
+                    <th>2) </th>
                     <th><!---time--->)rawliteral";
 
                     pref.begin("doseslot2", true);
@@ -209,7 +209,7 @@ String doseChart() PROGMEM{
                     page +=R"rawliteral(</th>
                 </tr>
                 <tr>
-                    <th>3</th>
+                    <th>3) </th>
                     <th><!---time--->)rawliteral";
 
                     pref.begin("doseslot3", true);
@@ -241,7 +241,7 @@ String doseChart() PROGMEM{
         </div>
 
         <br><div>
-            <a href="/dosechart/editdose/"><button class=button>Edit Dose</button></a>
+            <a href="/settings/dosechart/editdose/"><button class=button>Edit Dose</button></a>
         </div>
 
         <br><br><div>
@@ -253,7 +253,7 @@ String doseChart() PROGMEM{
     <p>Individual Design Project<br>B. M. C. D. Bandara<br>D/ENG/20/0067/ET</p>
     </footer>
 </html>
-})rawliteral";
+)rawliteral";
 
 return page;
 }
@@ -298,12 +298,13 @@ String editDose() PROGMEM{
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
-                </select> 
+                </select> <br><br>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time">
+                <br>
 
                 <h3>Compartment 1</h3>
-                <label for="time1">Time:</label>
-                <input type="time" id="time1" name="time1">
-                <br><br>
 
                 <label for="dose2">Dose (amount of pills):</label>
                 <select id="dose2" name="dose2">
@@ -314,9 +315,6 @@ String editDose() PROGMEM{
                 </select> 
 
                 <h3>Compartment 2</h3>
-                <label for="time2">Time:</label>
-                <input type="time" id="time2" name="time2">
-                <br><br>
 
                 <label for="dose2">Dose (amount of pills):</label>
                 <select id="dose2" name="dose2">
@@ -327,9 +325,6 @@ String editDose() PROGMEM{
                 </select> 
 
                 <h3>Compartment 3</h3>
-                <label for="time3">Time:</label>
-                <input type="time" id="time3" name="time3">
-                <br><br>
 
                 <label for="dose3">Dose (amount of pills):</label>
                 <select id="dose3" name="dose3">
