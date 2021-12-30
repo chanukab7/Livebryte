@@ -8,7 +8,7 @@
 
 #include "touch.h"
 
-#include"gsm.h"
+#include "gsm.h"
 #include "iot.h"
 #include "webclient.h"
 
@@ -25,7 +25,7 @@ Touch touch(34);
 void setup() {
   s.begin(9600);
 
-  /* displaySetup();
+  displaySetup();
   s.println("Display Set");
 
   rtcSetup();
@@ -36,7 +36,7 @@ void setup() {
 
   //compartment setup
   compartmentPinSetup();
-  s.println("Compartment setup"); */
+  s.println("Compartment setup");
 
   //wifi setup
   wifisetup();
@@ -63,6 +63,23 @@ void loop(){
       break;
   }
 
- s.println(getTime().c_str());
+  /* if (!t){
+    start = millis();
+    t =true;
+  }
+
+  if (millis() - start >= 5000){
+    Serial.print(getTime().hour(), DEC);
+    Serial.print(':');
+    Serial.print(getTime().minute(), DEC);
+    Serial.print(':');
+    Serial.print(getTime().second(), DEC);
+    Serial.println();
+
+    t=false;
+  } */
+
+    
+
   
 }

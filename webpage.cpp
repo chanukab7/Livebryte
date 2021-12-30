@@ -90,9 +90,9 @@ String page = R"rawliteral(
             <div>
                 <a href="/settings/wifi"><button class="button" role="button">WI-FI CONFIGURATION</button></a><br><br>
             </div>
-            <div>
+            <!---<div>
                 <a href="/settings/timesetting"><button class="button" role="button">TIME SETTING</button></a><br><br>
-            </div>
+            </div>--->
             <div>
                 <a href="/settings/phone"><button class="button" role="button">PHONE NUMBER</button></a><br><br>
             </div>
@@ -588,14 +588,14 @@ page += compID;
 page += String(R"rawliteral(
         </h1>
 
-           <a href="cs)rawliteral") + compID + R"rawliteral(/dispense"><button class="button">DISPENSE</button></a><br><br>
+           <a href="cs)rawliteral") + compID + R"rawliteral(/dispense"><button class="button">DISPENSE ONE</button></a><br><br>
 
         <div>
 )rawliteral";
 
 String anchor1 = String(R"rawliteral(            <a href="cs)rawliteral") + compID + R"rawliteral(/calibrate"><button>Calibrate</button></a><br><br>)rawliteral" + "\n";
-String anchor2 = String(R"rawliteral(            <a href="cs)rawliteral") + compID + R"rawliteral(/name"><button>Name</button></a><br><br>)rawliteral" + "\n";
-String anchor3 = String(R"rawliteral(            <a href="cs)rawliteral") + compID + R"rawliteral(/dose"><button>Dose</button></a><br><br>)rawliteral" + "\n";
+//String anchor2 = String(R"rawliteral(            <a href="cs)rawliteral") + compID + R"rawliteral(/name"><button>Name</button></a><br><br>)rawliteral" + "\n";
+//String anchor3 = String(R"rawliteral(            <a href="cs)rawliteral") + compID + R"rawliteral(/dose"><button>Dose</button></a><br><br>)rawliteral" + "\n";
 
 page += anchor1;
 page += anchor2;

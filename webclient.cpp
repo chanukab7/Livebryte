@@ -14,7 +14,7 @@ void webclientSetup(){
     server.on("/settings/dosechart", sendDoseChart);
     server.on("/settings/dosechart/editdose/", sendEditDose);
     server.on("/settings/wifi", sendWifi);
-    server.on("/settings/timesetting", sendTimePage);
+    //server.on("/settings/timesetting", sendTimePage);
     server.on("/settings/phone", sendPhone);
     server.on("/settings/phone/testcall", sendSubmit);
     server.on("/settings/phone/testmsg", sendSubmit);
@@ -159,14 +159,26 @@ void sendSubmit(){
 
         }
 
-        else if (command == "date"){
-            const char* tempDate=server.arg(0).c_str();
+        /* else if (command == "date"){
+            //const char* tempDate=server.arg(0).c_str();
 
-            const char* tempTime=server.arg(1).c_str();
+            char tempDate = server.arg(0)[0];
 
-            setDateTime(tempDate[0], tempDate[1], tempDate[2], tempTime[0], tempTime[1]);
+            // const char* tempTime=server.arg(1).c_str();
+            char tempTime=server.arg(1)[0];
+
+            Serial.println(tempDate);
+            Serial.println(tempTime);
+
+            Serial.println(tempDate);
+            Serial.println(tempDate[5]);
+            Serial.println(tempDate[6]);
+
+
+
+            //setDateTime(year, month, day, hour, minute, 00);
         }
-
+ */
         else{
             Serial.println("Unknown");
 
