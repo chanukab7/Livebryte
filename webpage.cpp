@@ -598,8 +598,8 @@ String anchor1 = String(R"rawliteral(            <a href="cs)rawliteral") + comp
 //String anchor3 = String(R"rawliteral(            <a href="cs)rawliteral") + compID + R"rawliteral(/dose"><button>Dose</button></a><br><br>)rawliteral" + "\n";
 
 page += anchor1;
-page += anchor2;
-page += anchor3;
+// page += anchor2;
+// page += anchor3;
 
 page += R"rawliteral( 
         </div>
