@@ -63,6 +63,6 @@ void loop(){
       break;
   }
 
- //displayTime();
+ s.println(getTime().c_str());
   
 }
