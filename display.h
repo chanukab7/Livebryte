@@ -2,7 +2,7 @@
 #define display_h
 
 #include "rtcfunctions.h"
-#include "touch.h"
+// #include "touch.h"
 
 #include <Arduino.h>
 #include <SPI.h>
@@ -15,7 +15,7 @@ void ledonce();
 
 void displaySetup();
 void displayTime();
-void cuteDisplayTime(Touch touch);
+// void cuteDisplayTime(Touch touch);
 char* returnTime();
 void displayDate();
 char* returnDate();

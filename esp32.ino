@@ -6,7 +6,7 @@
 #include "display.h"
 #include "images.h"
 
-#include "touch.h"
+// #include "touch.h"
 
 #include "gsm.h"
 #include "iot.h"
@@ -20,7 +20,7 @@ int irpins[] = {35};
 
 //device definitions
 Compartment comp1(1, motorpins1, irpins[0]); */
-Touch touch(34);
+// Touch touch(34);
 
 void setup() {
   s.begin(9600);
@@ -31,8 +31,8 @@ void setup() {
   rtcSetup();
   s.println("RTC set");
 
-  touch.pinSetup();
-  s.println("Touch sensor set");
+  /* touch.pinSetup();
+  s.println("Touch sensor set"); */
 
   //compartment setup
   compartmentPinSetup();
@@ -62,6 +62,8 @@ void loop(){
     default:
       break;
   }
+
+  displayTime();
 
   /* if (!t){
     start = millis();
