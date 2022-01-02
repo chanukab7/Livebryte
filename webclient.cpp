@@ -14,7 +14,7 @@ void webclientSetup(){
     server.on("/settings/dosechart", sendDoseChart);
     server.on("/settings/dosechart/editdose/", sendEditDose);
     server.on("/settings/wifi", sendWifi);
-    //server.on("/settings/timesetting", sendTimePage);
+    server.on("/settings/timesetting", sendTimePage);
     server.on("/settings/phone", sendPhone);
     server.on("/settings/phone/testcall", sendSubmit);
     server.on("/settings/phone/testmsg", sendSubmit);
@@ -159,26 +159,94 @@ void sendSubmit(){
 
         }
 
-        /* else if (command == "date"){
-            //const char* tempDate=server.arg(0).c_str();
+        else if (command == "date"){
+            String date = server.arg(0);
+            String time = server.arg(1);
 
-            char tempDate = server.arg(0)[0];
+            char dateChar[date.length()+1];
+            char timeChar[time.length()+1];
 
-            // const char* tempTime=server.arg(1).c_str();
-            char tempTime=server.arg(1)[0];
+            strcpy (dateChar, date.c_str());
+            strcpy (timeChar, time.c_str());
 
-            Serial.println(tempDate);
-            Serial.println(tempTime);
+            int year = (dateChar[0]-48)*1000 + (dateChar[1]-48)*100 + (dateChar[2]-48)*10 + (dateChar[3]-48);
+            int month = (dateChar[5]-48)*10 + (dateChar[6]-48);
+            int day = (dateChar[8]-48)*10 + (dateChar[9]-48);
+            int hour = (timeChar[0]-48)*10 + (timeChar[1]-48);
+            int minute = (timeChar[3]-48)*10 + (timeChar[4]-48);
 
-            Serial.println(tempDate);
-            Serial.println(tempDate[5]);
-            Serial.println(tempDate[6]);
+            Serial.println(year);
+            Serial.println(month);
+            Serial.println(day);
 
+            Serial.println(hour);
+            Serial.println(minute);
 
-
-            //setDateTime(year, month, day, hour, minute, 00);
+            setDateTime(year, month, day, hour, minute, 0);
+            
+            
         }
- */
+
+        else if (command == "dose"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("dose", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "dosechart"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("dosechart", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "comp1"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("comp1", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "comp2"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("comp2", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "comp3"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("comp3", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
         else{
             Serial.println("Unknown");
 
