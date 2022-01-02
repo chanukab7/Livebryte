@@ -6,6 +6,7 @@
 #include <WebServer.h>
 #include "webpage.h"
 #include <Preferences.h>
+#include <cstring>
 
 #include "clss.h"
 #include "rtcfunctions.h"

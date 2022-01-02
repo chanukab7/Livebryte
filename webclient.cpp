@@ -14,7 +14,7 @@ void webclientSetup(){
     server.on("/settings/dosechart", sendDoseChart);
     server.on("/settings/dosechart/editdose/", sendEditDose);
     server.on("/settings/wifi", sendWifi);
-    //server.on("/settings/timesetting", sendTimePage);
+    server.on("/settings/timesetting", sendTimePage);
     server.on("/settings/phone", sendPhone);
     server.on("/settings/phone/testcall", sendSubmit);
     server.on("/settings/phone/testmsg", sendSubmit);
@@ -166,11 +166,23 @@ void sendSubmit(){
             char dateChar[date.length()+1];
             char timeChar[time.length()+1];
 
-            strcopy (dateChar, date.c_str());
-            strcopy (timeChar, time.c_str());
+            strcpy (dateChar, date.c_str());
+            strcpy (timeChar, time.c_str());
 
-            Serial.println(dateChar);
-            Serial.println(timeChar);
+            int year = (dateChar[0]-48)*1000 + (dateChar[1]-48)*100 + (dateChar[2]-48)*10 + (dateChar[3]-48);
+            int month = (dateChar[5]-48)*10 + (dateChar[6]-48);
+            int day = (dateChar[8]-48)*10 + (dateChar[9]-48);
+            int hour = (timeChar[0]-48)*10 + (timeChar[1]-48);
+            int minute = (timeChar[3]-48)*10 + (timeChar[4]-48);
+
+            Serial.println(year);
+            Serial.println(month);
+            Serial.println(day);
+
+            Serial.println(hour);
+            Serial.println(minute);
+
+            setDateTime(year, month, day, hour, minute, 0);
             
             
         }
