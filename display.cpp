@@ -86,17 +86,6 @@ void displayImage(unsigned char* image){
     display.display();
 }
 
-/* void cuteDisplayTime(Touch touch){
-    displayTime();
-
-    if(touch.touchOne()){
-        displayImage(ice_bear);
-        delay(1000);
-        displayImage(inverted_ice_bear);
-        delay(1000);
-    }
-} */
-
 void stopScroll(){
     display.stopscroll();
 }

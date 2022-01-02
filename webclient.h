@@ -2,7 +2,6 @@
 #define webclient_h
 
 #include <WiFi.h>
-// #include <WiFiClient.h>
 #include <WebServer.h>
 #include "webpage.h"
 #include <Preferences.h>

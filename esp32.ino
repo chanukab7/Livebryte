@@ -50,25 +50,7 @@ void loop(){
       break;
   }
 
-  displayTime();
-
-  /* if (!t){
-    start = millis();
-    t =true;
-  }
-
-  if (millis() - start >= 5000){
-    Serial.print(getTime().hour(), DEC);
-    Serial.print(':');
-    Serial.print(getTime().minute(), DEC);
-    Serial.print(':');
-    Serial.print(getTime().second(), DEC);
-    Serial.println();
-
-    t=false;
-  } */
-
-    
+  displayTime();  
 
   
 }

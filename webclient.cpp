@@ -3,7 +3,6 @@
 bool actionDone = false;
 unsigned int currentCompWebClient;
 
-// WiFiServer server(80);
 WebServer server(80);
 
 void webclientSetup(){
@@ -179,66 +178,6 @@ void sendSubmit(){
 
             
         }
-
-       /*  else if (command == "dose"){
-            String dose = server.arg(0);
-            String time = server.arg(1);
-
-            Preferences pref;
-            pref.begin("dose", false);
-            pref.putString("dose", dose);
-            pref.putString("time", time);
-            pref.end();
-
-        }
-
-        else if (command == "dosechart"){
-            String dose = server.arg(0);
-            String time = server.arg(1);
-
-            Preferences pref;
-            pref.begin("dosechart", false);
-            pref.putString("dose", dose);
-            pref.putString("time", time);
-            pref.end();
-
-        }
-
-        else if (command == "comp1"){
-            String dose = server.arg(0);
-            String time = server.arg(1);
-
-            Preferences pref;
-            pref.begin("comp1", false);
-            pref.putString("dose", dose);
-            pref.putString("time", time);
-            pref.end();
-
-        }
-
-        else if (command == "comp2"){
-            String dose = server.arg(0);
-            String time = server.arg(1);
-
-            Preferences pref;
-            pref.begin("comp2", false);
-            pref.putString("dose", dose);
-            pref.putString("time", time);
-            pref.end();
-
-        }
-
-        else if (command == "comp3"){
-            String dose = server.arg(0);
-            String time = server.arg(1);
-
-            Preferences pref;
-            pref.begin("comp3", false);
-            pref.putString("dose", dose);
-            pref.putString("time", time);
-            pref.end();
-
-        } */
 
         else{
             Serial.println("Unknown");
