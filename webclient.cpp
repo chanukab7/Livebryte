@@ -159,26 +159,82 @@ void sendSubmit(){
 
         }
 
-        /* else if (command == "date"){
-            //const char* tempDate=server.arg(0).c_str();
+        else if (command == "date"){
+            String date = server.arg(0);
+            String time = server.arg(1);
 
-            char tempDate = server.arg(0)[0];
+            char dateChar[date.length()+1];
+            char timeChar[time.length()+1];
 
-            // const char* tempTime=server.arg(1).c_str();
-            char tempTime=server.arg(1)[0];
+            strcopy (dateChar, date.c_str());
+            strcopy (timeChar, time.c_str());
 
-            Serial.println(tempDate);
-            Serial.println(tempTime);
-
-            Serial.println(tempDate);
-            Serial.println(tempDate[5]);
-            Serial.println(tempDate[6]);
-
-
-
-            //setDateTime(year, month, day, hour, minute, 00);
+            Serial.println(dateChar);
+            Serial.println(timeChar);
+            
+            
         }
- */
+
+        else if (command == "dose"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("dose", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "dosechart"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("dosechart", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "comp1"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("comp1", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "comp2"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("comp2", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
+        else if (command == "comp3"){
+            String dose = server.arg(0);
+            String time = server.arg(1);
+
+            Preferences pref;
+            pref.begin("comp3", false);
+            pref.putString("dose", dose);
+            pref.putString("time", time);
+            pref.end();
+
+        }
+
         else{
             Serial.println("Unknown");
 

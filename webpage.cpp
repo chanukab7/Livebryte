@@ -90,9 +90,9 @@ String page = R"rawliteral(
             <div>
                 <a href="/settings/wifi"><button class="button" role="button">WI-FI CONFIGURATION</button></a><br><br>
             </div>
-            <!---<div>
+            <div>
                 <a href="/settings/timesetting"><button class="button" role="button">TIME SETTING</button></a><br><br>
-            </div>--->
+            </div>
             <div>
                 <a href="/settings/phone"><button class="button" role="button">PHONE NUMBER</button></a><br><br>
             </div>
