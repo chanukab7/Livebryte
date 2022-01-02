@@ -6,21 +6,11 @@
 #include "display.h"
 #include "images.h"
 
-// #include "touch.h"
-
 #include "gsm.h"
 #include "iot.h"
 #include "webclient.h"
 
 #define s Serial
-
-//pin definitions
-/* int motorpins1[2] = {26, 25};
-int irpins[] = {35};
-
-//device definitions
-Compartment comp1(1, motorpins1, irpins[0]); */
-// Touch touch(34);
 
 void setup() {
   s.begin(9600);
@@ -30,9 +20,6 @@ void setup() {
 
   rtcSetup();
   s.println("RTC set");
-
-  /* touch.pinSetup();
-  s.println("Touch sensor set"); */
 
   //compartment setup
   compartmentPinSetup();

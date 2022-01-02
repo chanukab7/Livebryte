@@ -175,19 +175,12 @@ void sendSubmit(){
             int hour = (timeChar[0]-48)*10 + (timeChar[1]-48);
             int minute = (timeChar[3]-48)*10 + (timeChar[4]-48);
 
-            Serial.println(year);
-            Serial.println(month);
-            Serial.println(day);
-
-            Serial.println(hour);
-            Serial.println(minute);
-
             setDateTime(year, month, day, hour, minute, 0);
-            
+
             
         }
 
-        else if (command == "dose"){
+       /*  else if (command == "dose"){
             String dose = server.arg(0);
             String time = server.arg(1);
 
@@ -245,7 +238,7 @@ void sendSubmit(){
             pref.putString("time", time);
             pref.end();
 
-        }
+        } */
 
         else{
             Serial.println("Unknown");
