@@ -1,5 +1,7 @@
 # LiveBryte - Automated Medicinal Pill Dispenser
 
+[img](https://i.ibb.co/KrrWctB/livebryte.png)
+
 Welcome to the LiveBryte repository! This project focuses on the design and implementation of an automated medicinal pill dispenser with wireless and cellular connectivity. The device aims to simplify medication management and improve patient adherence to prescribed dosages.
 
 ## Project Overview
